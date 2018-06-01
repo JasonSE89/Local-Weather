@@ -12,28 +12,30 @@ function localCoordinates(callback){
 //Formats data for index.html page
 function formatData(city, country, temperature, icon){
   $(".container").append("<h3 class="+ "location"+">"+city+", "+country+"</h3>");
-  $(".container").append("<span id= temp>"+temperature+"&nbsp;"+"&nbsp;"+"</span>"+"<span id= "+"degree"+" class= "+"celc"+">&#8451;</span>");
+  $(".container").append("<span id= temp>"+temperature+"&nbsp;"+"</span>"+"<span id= "+"degree"+" class= "+"cels"+">&#8451;</span>");
   $(".container").append("<img src= "+icon+">");
   $('#degree').on("click", function(){
     number = parseInt($("#temp").text());
-    if($('#degree').attr('class') == "celc")
+    if($('#degree').attr('class') == "cels")
     {
     $("#temp").text(convertToFahrenheit(number));
     $('#degree').attr('class', 'fah');
+    $('#degree').text(" F"+"\u00B0");
     }
     else{
-    $("#temp").text(convertToCelcius(number));
-    $('#degree').attr('class', 'celc');
+    $("#temp").text(convertToCelsius(number));
+    $('#degree').attr('class', 'cels');
+    $('#degree').text(" C"+"\u00B0");
     }
 });
 }
 
-function convertToFahrenheit(celcius)
+function convertToFahrenheit(celsius)
 {
-  return Math.round(celcius*1.8+32);
+  return Math.round(celsius*1.8+32);
 }
 
-function convertToCelcius(fahrenheit)
+function convertToCelsius(fahrenheit)
 {
   return Math.round((fahrenheit-32)/1.8);
 }
