@@ -14,3 +14,12 @@ body{
 transform: translate(-50%, -50%);
 text-align: center;
 }
+
+.sunny{
+  background-image: url("images/sunnyWeather");
+}
+
+#degree:hover{
+  color: blue;
+  cursor: pointer;
+}
